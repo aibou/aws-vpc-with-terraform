@@ -214,3 +214,11 @@ resource "aws_nat_gateway" "ngw-d" {
   allocation_id = "${aws_eip.eip-ngw-d.id}"
   subnet_id     = "${aws_subnet.subnet-pub-d.id}"
 }
+
+resource "aws_vpn_gateway" "vgw" {
+  count = "${length(var.vgw_prefix) != 0 ? 1 : 0}"
+  vpc_id = "${aws_vpc.vpc.id}"
+  tags {
+    Name = "vgw.${var.vgw_prefix}.${data.template_file.vpc-name.rendered}"
+  }
+}

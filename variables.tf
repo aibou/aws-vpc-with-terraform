@@ -20,3 +20,7 @@ variable "vpc_cidr" {
   description = ""
 }
 
+variable "vgw_prefix" {
+  description = ""
+  default = ""
+}

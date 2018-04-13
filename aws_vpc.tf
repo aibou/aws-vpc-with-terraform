@@ -40,7 +40,7 @@ resource "aws_subnet" "subnet-pub-c" {
 resource "aws_subnet" "subnet-pub-d" {
   vpc_id                  = "${aws_vpc.vpc.id}"
   cidr_block              = "${cidrsubnet("${var.vpc_cidr}", 4, 2)}"
-  availability_zone       = "${var.aws_region}c"
+  availability_zone       = "${var.aws_region}d"
   map_public_ip_on_launch = true
 
   tags {
@@ -73,7 +73,7 @@ resource "aws_subnet" "subnet-pri-c" {
 resource "aws_subnet" "subnet-pri-d" {
   vpc_id                  = "${aws_vpc.vpc.id}"
   cidr_block              = "${cidrsubnet("${var.vpc_cidr}", 4, 6)}"
-  availability_zone       = "${var.aws_region}c"
+  availability_zone       = "${var.aws_region}d"
   map_public_ip_on_launch = false
 
   tags {
